@@ -33,7 +33,7 @@
 html {
   font-size: 150%;
   font-weight: 300;
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   line-height: 1.4;
 }
 
@@ -90,7 +90,8 @@ body {
   border: 0;
   border-radius: 10em;
   font-size: 100%;
-  font-family: "Montserrat";
+  font-family: "Roboto";
+  font-weight: 400;
 }
 
 .one {
@@ -138,30 +139,27 @@ body {
   outline: 2px solid var(--grey-050);
 }
 
-.operator {
+[data-type="operator"] {
+  /*Can style HTML element attributes with brackets*/
   background: var(--grey-200);
 }
-
-.number {
+[data-type="number"] {
   background: #fff;
 }
 
-.operator:focus {
+[data-type="operator"]:hover,
+[data-type="number"]:hover {
+  background: #c6fdff;
+  transition-duration: 0.2s;
+}
+
+[data-type="operator"]:focus {
   background: var(--grey-300);
   outline: 2px solid var(--grey-600);
 }
 
-.number:focus {
+[data-type="number"]:focus {
   background: var(--grey-200);
   outline: 2px solid var(--grey-600);
   transition-duration: 0.1s;
-}
-
-.operator:hover {
-  background: #c6fdff;
-  transition-duration: 0.2s;
-}
-.number:hover {
-  background: var(--grey-200);
-  transition-duration: 0.2s;
 }
