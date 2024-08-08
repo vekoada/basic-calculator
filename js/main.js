@@ -13,6 +13,8 @@ keys.addEventListener("click", (event) => {
 
   if (type === "clear") {
     display.textContent = "0";
+    delete calculator.dataset.firstNumber;
+    delete calculator.dataset.operator;
   }
 
   if (type === "number") {
@@ -70,3 +72,67 @@ function getResult(firstNumber, operation, secondNumber) {
       return a / b;
   }
 }
+
+// ==============================
+// TESTING
+// ==============================
+function clearCalculator() { // used to clear the calculator for testing
+  const clearKey = document.querySelector('[data-type="clear"]');
+  clearKey.click();
+}
+
+function testClear() {
+  clearCalculator();
+  console.assert(display.textContent === "0", "display is 0");
+  console.assert(!calculator.dataset.firstNumber, "firstNumber is undefined");
+  console.assert(!calculator.dataset.operator, "operator is undefined");
+}
+
+function testSequence(test) { // Create repeatable test structure for many different key combinations
+  clearCalculator();
+  test.keys.forEach((key) => {
+    document.querySelector(`[data-key="${key}"]`).click();
+  });
+  console.assert((display.textContent === test.result), test.message);
+  clearCalculator();
+  testClear();
+}
+
+const tests = [{
+  keys: ["1"],
+  result: "1",
+  message: "Clicked 1" // Simple click test
+}, {
+  keys: ["1", "2"],
+  result: "12",
+  message: "Clicked 1 and 2" // Double click test
+}, {
+  keys: ["1", "plus", "2", "equals"],
+  result: "3",
+  message: "Clicked 1 + 2" // Addition test
+}, {
+  keys: ["2", "times", "3", "equals"],
+  result: "6",
+  message: "Clicked 2 * 3" // Multiplication test
+}, {
+  keys: ["9", "divide", "3", "equals"],
+  result: "3",
+  message: "Clicked 9 / 3" // Division test
+}];
+
+tests.forEach(testSequence);
+
+
+
+
+
+
+//one.addEventListener("click", () => {
+  //console.log("one");
+//});
+
+
+
+
+
+
