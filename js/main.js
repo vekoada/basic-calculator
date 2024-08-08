@@ -61,7 +61,7 @@ function getResult(firstNumber, operation, secondNumber) {
   const a = parseFloat(firstNumber);
   const b = parseFloat(secondNumber);
 
-  switch (operation) {
+  switch (operation) { // Handles operations
     case "+":
       return a + b;
     case "-":
@@ -79,6 +79,7 @@ function getResult(firstNumber, operation, secondNumber) {
 function clearCalculator() { // used to clear the calculator for testing
   const clearKey = document.querySelector('[data-type="clear"]');
   clearKey.click();
+  operatorKeys.forEach(key => { key.dataset.state = ""; }); // Also needs to get rid of the selected state
 }
 
 function testClear() {
@@ -118,19 +119,29 @@ const tests = [{
   keys: ["9", "divide", "3", "equals"],
   result: "3",
   message: "Clicked 9 / 3" // Division test
+}, {
+  keys: ["3", "5", "8", "times", "192", "equals"],
+  result: "6720",
+  message: "Clicked 358 * 192" // Bigger multiplication test
+}, {
+  keys: ["3", ".", "1", "4", "1", "5", "9", "times", "3", ".", "1", "4", "1", "5", "9", "equals"],
+  result: "9.8695877281",
+  message: "Clicked 3.14159 * 3.14159" // Decimal test
+}, {
+  keys: ["1", "divide", "0", "equals"],
+  result: "Infinity",
+  message: "Clicked 1 / 0" // Division by zero test
 }];
 
 tests.forEach(testSequence);
 
-
-
-
-
-
-//one.addEventListener("click", () => {
-  //console.log("one");
-//});
-
+// ==============================
+// There are still some edge cases. We need to make sure that if the user clickes the equals key twice in a row, the calculator will clear itself. 
+// Also, we should add support for multiples ways of clearing. Right now, we clear everything, but we should also be able to clear the last number or the last operator.
+// Also, we should add support for chaining operations. Users should be able to click an operator, then click a number, then click an operator again, etc, and the calculator should display the result at each segment of the operation.
+// It would be good to add parentheses to the calculator for clear order of operations.
+// It would also be nice to add support for keyboard input.
+// ==============================
 
 
 
