@@ -94,47 +94,47 @@ body {
   font-weight: 400;
 }
 
-.one {
-  grid-area: one; /*forces button of class one to occupy the grid area labeled one*/
+[data-key="1"] {
+  grid-area: one; /*forces button of data-key 1 to occupy the grid area labeled one*/
 }
-.two {
+[data-key="2"] {
   grid-area: two;
 }
-.three {
+[data-key="3"] {
   grid-area: three;
 }
-.four {
+[data-key="4"] {
   grid-area: four;
 }
-.five {
+[data-key="5"] {
   grid-area: five;
 }
-.six {
+[data-key="6"] {
   grid-area: six;
 }
-.seven {
+[data-key="7"] {
   grid-area: seven;
 }
-.eight {
+[data-key="8"] {
   grid-area: eight;
 }
-.nine {
+[data-key="9"] {
   grid-area: nine;
 }
-.zero {
+[data-key="0"] {
   grid-area: zero;
 }
-.decimal {
+[data-key="decimal"] {
   grid-area: decimal;
 }
-.clear {
+[data-key="clear"] {
   grid-area: clear;
 }
-.equal {
+[data-key="equal"] {
   grid-area: equal; /*will stretch the equal symbol to fill the four grid areas labeled equal*/
   background-color: var(--orange-400);
 }
-.equal:active {
+[data-key="equal"]:active {
   background-color: var(--orange-500);
   outline: 2px solid var(--grey-050);
 }
@@ -143,12 +143,14 @@ body {
   /*Can style HTML element attributes with brackets*/
   background: var(--grey-200);
 }
-[data-type="number"] {
+[data-type="number"],
+[data-type="clear"] {
   background: #fff;
 }
 
 [data-type="operator"]:hover,
-[data-type="number"]:hover {
+[data-type="number"]:hover,
+[data-type="clear"]:hover {
   background: #c6fdff;
   transition-duration: 0.2s;
 }
@@ -158,7 +160,8 @@ body {
   outline: 2px solid var(--grey-600);
 }
 
-[data-type="number"]:focus {
+[data-type="number"]:focus,
+[data-type="clear"]:focus {
   background: var(--grey-200);
   outline: 2px solid var(--grey-600);
   transition-duration: 0.1s;
