@@ -1,12 +1,16 @@
-# Basic Calculator
+# Calculator
 
 ## Description
 
-This project is a basic calculator web application, created as a learning exercise to improve skills in JavaScript, HTML, and CSS. It's a work in progress, designed to provide a foundation for understanding front-end web development concepts.
+This is a basic calculator webapp. The goal was to get better at foundational vanilla JS, HTML, and CSS concepts while building something (moderately) useful. I wanted to build a calculator that both *worked* and *felt good* to use. 
+
+Going forward, I'm thinking of ironing out some of the edge cases, adding more advanced calculator features and keyboard support, and allowing the user to drag/drop/resize and customize the calculator colors. 
+
+This will strengthen my grasp of the features of vanilla JavaScript and serve as a gateway into more advanced applications.
 
 ## Features
 
-- Basic arithmetic operations (addition, subtraction, multiplication, division)
+- Basic math operations (addition, subtraction, multiplication, division)
 - Clear functionality
 - Responsive design
 
@@ -34,20 +38,15 @@ calculator/
 1. Clone the repository or download the project files.
 2. Open `index.html` in a web browser to use the calculator.
 
-## Future Enhancements
+## Future
 
-While this project starts as a basic calculator, I might expand its functionality. Some ideas for future development include:
-
-- Transforming it into a full-fledged graphing scientific calculator
-- Adapting it into a startup financial estimate calculator
-- Adding more advanced mathematical functions
+I want to add additional features:
+- Let the user resize the calculator when on desktop
+- Let the user drag and drop the calculator to another position on the page
+- Adding more advanced calculation functionality
 
 ## Learning Objectives
-
-This project serves as a practical exercise to:
-
-- Strengthen JavaScript fundamentals
-- Practice HTML structure and semantic markup
-- Improve CSS styling and layout techniques
-- Gain experience with DOM manipulation
-- Implement basic event handling
+- Get better at JavaScript, CSS
+- Reinforce HTML concepts
+- DOM manipulation
+- Event handling
