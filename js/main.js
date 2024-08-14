@@ -73,6 +73,36 @@ function getResult(firstNumber, operation, secondNumber) {
   }
 }
 
+/*Makes the calculator draggable by the user to any location on screen.*/
+/*TODO: Make this work!!*/
+let offsetX = 0;
+let offsetY = 0;
+let mouseX = 0;
+let mouseY = 0;
+isMouseDown = false;
+
+// Mouse down event
+calculator.addEventListener('mousedown', (e) => {
+  isMouseDown = true;
+  offsetX = calculator.offsetLeft - e.clientX;
+  offsetY = calculator.offsetTop - e.clientY;
+});
+
+// Mouse move event
+calculator.addEventListener('mousemove', (e) => {
+  if(!isMouseDown) return;
+  e.preventDefault();
+  mouseX = e.clientX + offsetX;
+  mouseY = e.clientY + offsetY;
+  calculator.computedStyleMap.left = mouseX + 'px';
+  calculator.computedStyleMap.top = mouseY + 'px';
+});
+
+// Mouse up event
+document.addEventListener('mouseup', (e) => {
+  isMouseDown = false;
+})
+
 // ==============================
 // TESTING
 // ==============================

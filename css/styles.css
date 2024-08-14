@@ -55,6 +55,8 @@ body {
   overflow: hidden; /*since buttons have sharp edges, if we don't hide the overflow, the border-radius won't be applied*/
   width: 90vw;
   max-width: 435px;
+  position: absolute;
+  cursor: move;
 }
 
 .calculator__display {
